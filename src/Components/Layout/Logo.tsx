@@ -1,0 +1,60 @@
+export default function Logo() {
+  return (
+    <svg
+      width="55"
+      height="45"
+      viewBox="0 0 55 45"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="17.5"
+        cy="22.5002"
+        r="7.25"
+        // fill="#585858"
+        stroke="#28D2D2"
+        strokeWidth="0.5"
+      />
+      <circle
+        cx="27.5"
+        cy="7.5"
+        r="7.25"
+        //fill="#585858"
+        stroke="#28D2D2"
+        strokeWidth="0.5"
+      />
+      <circle
+        cx="37.5"
+        cy="22.5002"
+        r="7.25"
+        fill="#2B7E7E"
+        stroke="#28D2D2"
+        strokeWidth="0.5"
+      />
+      <circle
+        cx="47.5"
+        cy="37.4998"
+        r="7.25"
+        //fill="#585858"
+        stroke="#28D2D2"
+        strokeWidth="0.5"
+      />
+      <circle
+        cx="27.5"
+        cy="37.4998"
+        r="7.25"
+        //fill="#585858"
+        stroke="#28D2D2"
+        strokeWidth="0.5"
+      />
+      <circle
+        cx="7.5"
+        cy="37.4998"
+        r="7.25"
+        fill="#28D2D2"
+        stroke="#28D2D2"
+        strokeWidth="0.5"
+      />
+    </svg>
+  );
+}

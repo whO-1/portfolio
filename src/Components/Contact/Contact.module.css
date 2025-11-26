@@ -1,0 +1,15 @@
+.contactSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 54px;
+}
+
+.contactHeader {
+  font-size: 20px;
+  color: var(--color-text-on-primary);
+}
+
+.contactRow {
+  color: var(--color-text-on-primary);
+}

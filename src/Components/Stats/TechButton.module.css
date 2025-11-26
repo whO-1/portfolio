@@ -1,0 +1,13 @@
+.skillBtn {
+  transition: 0.15s ease-out;
+  background: #f6f6f640;
+  border: 1px solid #ffffff30;
+  backdrop-filter: blur(4px);
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #7070705d;
+  cursor: pointer;
+  color: var(--gray-500);
+}

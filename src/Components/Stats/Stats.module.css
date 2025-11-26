@@ -1,0 +1,41 @@
+.smallTitle {
+  color: var(--gray-500);
+}
+
+.skills-hex {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: auto;
+}
+
+.skill-btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hex-style offsets */
+.skills-hex > :nth-child(1),
+.skills-hex > :nth-child(2) {
+  grid-column: span 1;
+  justify-self: center;
+}
+
+.skills-hex > :nth-child(3),
+.skills-hex > :nth-child(4),
+.skills-hex > :nth-child(5) {
+  grid-column: span 1;
+}
+
+.skills-hex > :nth-child(6),
+.skills-hex > :nth-child(7),
+.skills-hex > :nth-child(8) {
+  grid-column: span 1;
+}
+
+.skills-hex > :nth-child(9),
+.skills-hex > :nth-child(10) {
+  justify-self: center;
+}

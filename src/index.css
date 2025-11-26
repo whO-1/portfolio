@@ -1,0 +1,108 @@
+:root {
+  --color-text-primary: #505050ff;
+  --color-text-secondary: #181818ff;
+  --color-primary: #ffffffff;
+  --color-primary-accent: rgb(174, 174, 174);
+  --color-on-primary: #0f172a;
+  --color-accent: #34e9e9;
+  --color-secondary: #2b7e7e;
+  --color-alt: #28d2d2;
+  --color-shadow: rgba(15, 23, 42, 0.08);
+  --gray-100: #f3f4f6;
+  --gray-300: #d1d5db;
+  --gray-700: #374151;
+}
+
+.dark {
+  --color-text-primary: #ffffffff;
+  --color-text-on-primary: rgb(31, 31, 31);
+  --color-text-secondary: #6c6a6e;
+  --color-primary: #1e1e21;
+  --color-on-primary: #ffffff;
+  --color-accent: #34e9e9;
+  --color-primary-accent: #212024;
+  --color-secondary: #2b7e7e;
+  --color-alt: #28d2d2;
+  --color-shadow: rgba(255, 255, 255, 0.04);
+  --gray-100: #0b1220;
+  --gray-300: #2b2f2f;
+  --gray-500: #9ba3b0;
+  --gray-700: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility helpers (small set to replace common Tailwind names) */
+.bg-primary {
+  background: var(--color-primary) !important;
+}
+.text-on-primary {
+  color: var(--color-on-primary) !important;
+}
+.bg-accent {
+  background: var(--color-accent) !important;
+  color: #000;
+}
+.bg-secondary {
+  background: var(--color-secondary) !important;
+  color: #fff;
+}
+.bg-alt {
+  background: var(--color-alt) !important;
+  color: #000;
+}
+.shadow-theme {
+  box-shadow: 0 6px 18px var(--color-shadow);
+}
+
+/* Simple container helper */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.carousel-inner {
+  height: 100%;
+}

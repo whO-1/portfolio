@@ -1,0 +1,20 @@
+.honeycomb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.item {
+  width: 275px;
+  margin-bottom: -65px;
+  transition: transform 0.3s;
+}
+
+.item:nth-child(odd) {
+  margin-top: 0px;
+}
+
+.item:nth-child(even) {
+  margin-top: 130px;
+}
