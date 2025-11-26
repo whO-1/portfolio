@@ -7,7 +7,6 @@ import styles from "./Navigation.module.css";
 
 interface NavigationProps {
   navLinks: { name: string; href: string }[];
-  name?: string;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ navLinks }) => {
@@ -57,7 +56,7 @@ const Navigation: React.FC<NavigationProps> = ({ navLinks }) => {
                 {navLinks.map((item) => (
                   <Nav.Link
                     key={item.name}
-                    href={item.href}
+                    href={!item.href ? item.href : "#"}
                     style={{ color: "var(--color-text-primary)" }}
                     onClick={() => setShow(false)}
                   >

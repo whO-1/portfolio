@@ -1,10 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import { defineHex, Grid, rectangle } from "honeycomb-grid";
+import React, { useState, useEffect } from "react";
 import styles from "./Projects.module.css";
-
-type HexInstance = {
-  toPoint: () => { x: number; y: number };
-};
+import Hexagon from "../Layout/Hexagon";
+import { HoneyCombGrid } from "../../extensions/honeyComb";
 
 type Project = {
   id: string;
@@ -18,86 +15,110 @@ const projects: Project[] = [
     id: "p1",
     title: "LIGHT BREATH",
     subtitle: "Web store template",
-    color: "var(--color-secondary)",
+    color: "var(--gray-500)",
   },
   {
     id: "p2",
     title: "LIGHT BREATH",
     subtitle: "Web store template",
-    color: "#5749a8",
+    color: "var(--gray-300)",
   },
   {
     id: "p3",
     title: "LIGHT BREATH",
     subtitle: "Web store template",
-    color: "var(--color-accent)",
+    color: "var(--gray-100)",
   },
   {
     id: "p4",
     title: "LIGHT BREATH",
     subtitle: "Web store template",
-    color: "#7a7b86",
+    color: "var(--gray-500)",
   },
-  { id: "p5", title: "?", subtitle: "?", color: "var(--color-alt)" },
+  { id: "p5", title: "", subtitle: "", color: "var(--gray-300)" },
+  { id: "p6", title: "", subtitle: "", color: "var(--gray-100)" },
+  { id: "p7", title: "", subtitle: "", color: "var(--gray-500)" },
+  { id: "p8", title: "", subtitle: "", color: "var(--gray-300)" },
+  { id: "p9", title: "", subtitle: "", color: "var(--gray-100)" },
+  { id: "p10", title: "", subtitle: "", color: "var(--gray-500)" },
+  { id: "p11", title: "", subtitle: "", color: "var(--gray-300)" },
+  { id: "p12", title: "", subtitle: "", color: "var(--gray-100)" },
+  { id: "p13", title: "", subtitle: "", color: "var(--gray-500)" },
+  { id: "p14", title: "", subtitle: "", color: "var(--gray-300)" },
+  { id: "p15", title: "", subtitle: "", color: "var(--gray-100)" },
 ];
 
 const Projects: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const hexSize = 200;
+  const cols = 3;
+  const rowSpacing = 0.5;
+  const hexWidth = 200;
+  const hexHeight = 173;
+  const padding = 12;
 
+  const { hexPlates, width, height } = HoneyCombGrid(
+    hexSize,
+    cols,
+    rowSpacing,
+    projects.length,
+    hexWidth,
+    hexHeight,
+    padding
+  );
+
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    if (!containerRef.current) return;
-
-    const Hex = defineHex({
-      dimensions: 30,
-      origin: "topLeft",
-    });
-
-    const grid = new Grid(
-      Hex,
-      rectangle({ width: 4, height: Math.ceil(projects.length / 4) })
-    );
-
-    containerRef.current.innerHTML = "";
-
-    let index = 0;
-    grid.forEach((hex) => {
-      const hexInstance = hex as unknown as HexInstance;
-      const { x, y } = hexInstance.toPoint();
-
-      const project = projects[index % projects.length];
-
-      const div = document.createElement("div");
-      div.style.position = "absolute";
-      div.style.left = `${x}px`;
-      div.style.top = `${y}px`;
-      div.style.width = "200px";
-      div.style.height = "173px";
-      div.style.clipPath =
-        "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)";
-      div.style.backgroundColor = project.color;
-      div.style.display = "flex";
-      div.style.flexDirection = "column";
-      div.style.justifyContent = "center";
-      div.style.alignItems = "center";
-      div.style.color = "#fff";
-      div.style.fontWeight = "bold";
-      div.innerHTML = `<div>${project.title}</div><div>${
-        project.subtitle || ""
-      }</div>`;
-
-      containerRef.current!.appendChild(div);
-
-      index++;
-    });
-
-    const gridArray = Array.from(grid);
-    const lastHex = gridArray[gridArray.length - 1] as HexInstance;
-    const { x: lastX, y: lastY } = lastHex.toPoint();
-    containerRef.current.style.width = `${lastX + 200}px`;
-    containerRef.current.style.height = `${lastY + 173}px`;
+    const check = () =>
+      setIsMobile(typeof window !== "undefined" && window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
-  return <div ref={containerRef} className={styles.honeycomb} />;
+  return (
+    <div
+      className={styles.honeycomb}
+      style={
+        isMobile
+          ? {
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "50px",
+            }
+          : { width, height }
+      }
+    >
+      {projects.map((p, i) => {
+        return (
+          <Hexagon
+            key={p.id}
+            stylesParent={
+              isMobile
+                ? {
+                    display: "block",
+                    width: "60vw",
+                    height: "50vw",
+                  }
+                : {
+                    position: "absolute",
+                    left: `${hexPlates[i].left}px`,
+                    top: `${hexPlates[i].top}px`,
+                    width: `${hexWidth}px`,
+                    height: `${hexHeight}px`,
+                  }
+            }
+            stylesHex={{ backgroundColor: p.color }}
+          >
+            <div className={styles.hexTitle}>{p.title}</div>
+            <div className={styles.hexSubtitle}>{p.subtitle}</div>
+          </Hexagon>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Projects;

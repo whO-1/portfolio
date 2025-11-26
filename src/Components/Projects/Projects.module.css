@@ -1,20 +1,27 @@
 .honeycomb {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.hex {
+  position: absolute;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  overflow: hidden;
 }
 
-.item {
-  width: 275px;
-  margin-bottom: -65px;
-  transition: transform 0.3s;
+.hexTitle {
+  font-size: 14px;
 }
 
-.item:nth-child(odd) {
-  margin-top: 0px;
-}
-
-.item:nth-child(even) {
-  margin-top: 130px;
+.hexSubtitle {
+  font-size: 12px;
+  opacity: 0.9;
 }

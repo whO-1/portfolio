@@ -11,36 +11,36 @@ import Contact from "./Components/Contact/Contact";
 import Projects from "./Components/Projects/Projects";
 
 const navigation = [
-  { name: "Projects", href: "#" },
-  { name: "About", href: "#" },
-  { name: "Skills", href: "#" },
-  { name: "Experience", href: "#" },
-  { name: "Contacts", href: "#" },
+  { name: "Projects", href: "#Projects" },
+  { name: "About", href: "#About" },
+  { name: "Skills", href: "#Skills" },
+  { name: "Experience", href: "#Experience" },
+  { name: "Contacts", href: "#Contact" },
 ];
 
 function App() {
   return (
     <>
       <Navigation navLinks={navigation} />
-      <Section style={{ minHeight: "90vh" }} name="HeroSection">
+      <Section style={{ minHeight: "90vh" }}>
         <Hero navLinks={navigation} />
       </Section>
-      <Section style={{ minHeight: "100vh" }} name="ProjectsSection">
+      <Section style={{ minHeight: "100vh" }} id="Projects">
         <Projects />
       </Section>
-      <Section style={{ minHeight: "40vh" }} name="StatsSection">
+      <Section style={{ minHeight: "40vh" }} id="Stats">
         <Stats />
       </Section>
-      <Section style={{ minHeight: "80vh" }} name="AboutSection">
+      <Section style={{ minHeight: "80vh" }} id="About">
         <About />
       </Section>
-      <Section style={{ minHeight: "100vh" }} name="SkillsSection">
+      <Section style={{ minHeight: "100vh" }} id="Skills">
         <Skills />
       </Section>
-      <Section style={{ minHeight: "80vh" }} name="CTASection">
+      <Section style={{ minHeight: "80vh" }} id="Contact">
         <ContactForm />
       </Section>
-      <Section style={{ minHeight: "80vh" }} name="JobsSection">
+      <Section style={{ minHeight: "80vh" }} id="Experience">
         <Experience />
       </Section>
       <Section

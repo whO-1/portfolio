@@ -2,6 +2,7 @@ interface SectionProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   name?: string;
+  id?: string;
 }
 
 const Section: React.FC<SectionProps> = ({ children, ...rest }) => {
