@@ -14,8 +14,8 @@ const navigation = [
   { name: "Projects", href: "#Projects" },
   { name: "About", href: "#About" },
   { name: "Skills", href: "#Skills" },
-  { name: "Experience", href: "#Experience" },
   { name: "Contacts", href: "#Contact" },
+  { name: "Experience", href: "#Experience" },
 ];
 
 function App() {

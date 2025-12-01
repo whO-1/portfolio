@@ -1,0 +1,7 @@
+.cardCollection {
+  width: min(50em, 95%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

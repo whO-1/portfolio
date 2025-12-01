@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import {
   ClockIcon,
   CircleStackIcon,
@@ -8,7 +7,7 @@ import {
   AcademicCapIcon,
   BugAntIcon,
 } from "@heroicons/react/24/outline";
-import "./Skills.module.css";
+import styles from "./Skills.module.css";
 import SkillCard from "./SkillCard";
 
 type Skill = {
@@ -22,7 +21,7 @@ const skills: Skill[] = [
   {
     id: "s1",
     title: "Efficient process time",
-    text: "Fast design development and product delivery in time. Support during all development process.",
+    text: "Fast design development and product delivery in time. Support during all development process. Support during all development process.Support during all development process.Support during all development process.Support during all development process.Support during all development process.",
     icon: ClockIcon,
   },
   {
@@ -59,40 +58,25 @@ const skills: Skill[] = [
 
 const Skills: React.FC = () => {
   return (
-    <section>
-      <Container
-        fluid
-        className="container-lg d-flex flex-column align-items-center py-5"
-      >
-        <h5 className="text-center my-5">
-          Get all these benefits from development process
-        </h5>
-
-        <Row className="d-flex g-4 mt-2" style={{ width: "70%" }}>
-          {skills.map((s) => {
-            return (
-              <Col
-                key={s.id}
-                xs={12}
-                md={6}
-                lg={4}
-                className="d-flex align-items-stretch"
-              >
-                <SkillCard title={s.title} text={s.text}>
-                  <s.icon
-                    className="mb-3"
-                    style={{
-                      width: "10vh",
-                      color: "var(--gray-300)",
-                    }}
-                  />
-                </SkillCard>
-              </Col>
-            );
-          })}
-        </Row>
-      </Container>
-    </section>
+    <div className="col-12 d-flex flex-column align-items-center">
+      <h5 className="text-center my-5">
+        Get all these benefits from development process
+      </h5>
+      <div className={styles.cardCollection}>
+        {skills.map((s) => {
+          return (
+            <div
+              key={s.id}
+              className="col-12 col-md-5 col-lg-4 p-3 m-0 d-flex justify-content-center"
+            >
+              <SkillCard title={s.title} text={s.text}>
+                <s.icon />
+              </SkillCard>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 

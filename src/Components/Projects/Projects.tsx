@@ -88,7 +88,7 @@ const Projects: React.FC = () => {
               alignItems: "center",
               gap: "50px",
             }
-          : { width, height }
+          : { width, height, overflow: "scroll" }
       }
     >
       {projects.map((p, i) => {

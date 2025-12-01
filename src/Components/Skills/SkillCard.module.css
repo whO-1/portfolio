@@ -1,15 +1,18 @@
 .CardBox {
-  background-color: var(--color-primary-accent) !important;
+  background-color: var(--color-primary-accent);
   border-radius: 12px;
   border: 5px solid var(--gray-300);
   box-shadow: 0 6px 18px var(--gray-100);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 20em;
+  width: 16em;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  cursor: pointer;
-  padding: 3px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center;
+  padding: 1em;
 }
+
 .CardBox:hover {
   transform: translateY(-8px);
 }
@@ -22,6 +25,7 @@
 .CardText {
   font-size: 14px;
   color: var(--color-text-secondary);
+  text-align: center;
 }
 
 .CardBox:hover .IconBox {
@@ -29,4 +33,6 @@
 }
 .IconBox {
   transition: color 0.3s ease;
+  width: 120px;
+  padding: 1em;
 }
